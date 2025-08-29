@@ -86,7 +86,7 @@ function loadBranches(warehouseId) {
     .then((response) => response.json())
     .then((data) => {
       const select = document.getElementById("branch");
-      select.innerHTML = '<option value="">Seleccione una sucursal</option>';
+      select.innerHTML = '<option value=""></option>';
 
       data.forEach((branch) => {
         const option = document.createElement("option");
@@ -102,7 +102,7 @@ function loadBranches(warehouseId) {
 
 function disableBranchSelect() {
   const select = document.getElementById("branch");
-  select.innerHTML = '<option value="">Seleccione una sucursal</option>';
+  select.innerHTML = '<option value=""></option>';
   select.disabled = true;
 }
 
@@ -119,7 +119,7 @@ function validateForm() {
   } else if (!/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{5,15}$/.test(productCode)) {
     showError(
       "productCodeError",
-      "El código del producto debe contener letras y números, entre 5 y 15 caracteres."
+      "El código debe contener letras y números, entre 5 y 15 caracteres."
     );
     isValid = false;
   } else {
